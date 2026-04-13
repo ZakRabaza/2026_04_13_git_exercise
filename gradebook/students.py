@@ -30,29 +30,9 @@ def remove_student(students: dict, student_id: str) -> dict:
 
 
 def find_student(students: dict, name: str) -> list:
-    """
-    Search for students whose name contains the given string (case-insensitive).
+    filtered_students = []
+    for student in students.values():
+        if name.lower() in student["name"].lower():
+            filtered_students.append(student)
+    return filtered_students
 
-    - Returns a list of matching student dicts.
-    - Returns an empty list if no match is found.
-    - The search must be case-insensitive: "alice" matches "Alice Smith".
-
-    Args:
-        students (dict): the current students database
-        name (str): the search string
-
-    Returns:
-        list: a list of matching student dicts
-
-    Example:
-        >>> db = {
-        ...   "S001": {"name": "Alice Smith", "id": "S001"},
-        ...   "S002": {"name": "Bob Martin",  "id": "S002"},
-        ... }
-        >>> find_student(db, "alice")
-        [{"name": "Alice Smith", "id": "S001"}]
-        >>> find_student(db, "xyz")
-        []
-    """
-    # TODO: implement this function
-    raise NotImplementedError("find_student is not implemented yet.")
