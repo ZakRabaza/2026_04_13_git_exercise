@@ -10,30 +10,14 @@
 
 
 def add_student(students: dict, name: str, student_id: str) -> dict:
-    """
-    Add a new student to the students dictionary.
-
-    - If student_id already exists, do NOT overwrite it.
-      Print a warning message instead: "Student S001 already exists."
-    - Student names should be stored with stripped whitespace and title case.
-      Example: "  alice smith  " → "Alice Smith"
-
-    Args:
-        students (dict): the current students database
-        name (str): full name of the student
-        student_id (str): unique identifier (e.g. "S001")
-
-    Returns:
-        dict: the updated students dictionary
-
-    Example:
-        >>> db = {}
-        >>> add_student(db, "alice", "S001")
-        >>> db
-        {"S001": {"name": "Alice", "id": "S001"}}
-    """
-    # TODO: implement this function
-    raise NotImplementedError("add_student is not implemented yet.")
+    if student_id in students:
+        print(f"Student {student_id} already exists.")
+    else:
+        students[student_id] = {
+            "name": name.strip().title(),
+            "id": student_id
+        }
+    return students
 
 
 def remove_student(students: dict, student_id: str) -> dict:
