@@ -21,27 +21,12 @@ def add_student(students: dict, name: str, student_id: str) -> dict:
 
 
 def remove_student(students: dict, student_id: str) -> dict:
-    """
-    Remove a student from the students dictionary by their ID.
-
-    - If the student_id does not exist, print a warning:
-      "Student S999 not found." and return the dictionary unchanged.
-
-    Args:
-        students (dict): the current students database
-        student_id (str): the ID of the student to remove
-
-    Returns:
-        dict: the updated students dictionary
-
-    Example:
-        >>> db = {"S001": {"name": "Alice", "id": "S001"}}
-        >>> remove_student(db, "S001")
-        >>> db
-        {}
-    """
-    # TODO: implement this function
-    raise NotImplementedError("remove_student is not implemented yet.")
+    if student_id not in students:
+        print(f"Student {student_id} not found.")
+        return students
+    else:
+        del students[student_id]
+        return students
 
 
 def find_student(students: dict, name: str) -> list:
